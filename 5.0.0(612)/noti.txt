@@ -1,0 +1,36 @@
+***** Version *****
+5.0.0(612)
+
+
+***** BAT 실행 전 사전 조건 *****
+* 디바이스 세로로 둔 상태에서 실행할 것 *
+- CJ ENM 월정액 가입 상태
+- <슈퍼 마리오 브라더스> 미 구매 상태
+- ppp <엘리멘탈 자막+더빙 소장 패키지> 구매 상태
+- MY > 찜 목록 > 임의의 콘텐츠 1개 이상 존재
+
+
+***** 자동화 테스트 셋팅 방법 *****
+1. 자동화 스크립트 폴더 열기
+비주얼 스튜디오 > 파일 > 모바일 Btv 폴더 열기
+
+
+2. 자동화 대상 단말명 입력
+비주얼 스튜디오 > mBtv.resource 파일 > Variables의 ${deviceName} 우측에 단말명 입력
+ex) ${deviceName}    R5CR8050X6P
+
+
+3. 앱피움 서버 가동
+cmd > appium --base-path=/wd/hub 입력
+
+
+4. 테스트 실행 (Btv 앱 실행 상태에서 테스트 진행)
+비주얼 스튜디오 > 터미널 > 하기 명령어 입력
+
+- Suite 단위 테스트 : robot .\bat.robot
+- 개별 테스트 : robot --test "티씨명" .\bat.robot
+- 반복 테스트 : for ($i=1; $i -le 20; $i++) { robot --test "티씨명" .\bat.robot }
+
+
+5. Report 저장
+v.s 터미널 > robotmetrics 입력 > 스크립트 폴더 내 저장 확인 ("metrics-날짜" 형식으로 저장됨)
